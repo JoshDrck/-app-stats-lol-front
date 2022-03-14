@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Lista de campeones</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="guardarSeleccion()">
+        <ion-icon slot="end" name="checkmark"></ion-icon>
+      </ion-button>
+      <ion-button (click)="cancelarSeleccion()">
+        <ion-icon slot="end" name="exit"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item
+      *ngFor="let champion of champions"
+      (click)="selectChamp(champion._id)"
+    >
+      <ion-avatar slot="start">
+        <img [src]="champion.image.pathIcon" />
+      </ion-avatar>
+      <ion-label>{{champion.name}}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

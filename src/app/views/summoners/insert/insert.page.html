@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Nuevo Summoner</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div>
+      <label for="">_id</label><input type="text" formControlName="_id" />
+    </div>
+    <div>
+      <label for="">Nombre</label><input type="text" formControlName="name" />
+    </div>
+    <div>
+      <label for="">icon</label><input type="text" formControlName="icon" />
+    </div>
+    <div>
+      <label for="">lvl</label><input type="text" formControlName="lvl" />
+    </div>
+    <div class="champions-list">
+      <ion-label for="">Añadir campeones</ion-label>
+      <ion-button fill="clear" (click)="presentModal()"
+        >Añadir Campeon</ion-button
+      >
+    </div>
+    <div>
+      <label for="">leagueTier</label
+      ><input type="text" formControlName="leagueTier" />
+    </div>
+    <div>
+      <label for="">queueLine</label
+      ><input type="text" formControlName="queueLine" />
+    </div>
+    <div>
+      <label for="">leaguePoints</label
+      ><input type="text" formControlName="leaguePoints" />
+    </div>
+    <div>
+      <label for="">wins</label><input type="text" formControlName="wins" />
+    </div>
+    <div>
+      <label for="">losses</label><input type="text" formControlName="losses" />
+    </div>
+    <div class="ion-text-center">
+      <ion-button expand="block" type="submit" shape="round">
+        Agregar
+      </ion-button>
+      <ion-button expand="block" type="reset" shape="round">
+        Cancelar
+      </ion-button>
+    </div>
+  </form>
+</ion-content>

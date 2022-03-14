@@ -1,0 +1,114 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Insertar un nuevo Campeon</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div>
+      <label for="">Version</label>
+      <input
+        type="text"
+        disabled
+        placeholder="12.3.1"
+        style="border: none; text-align: center"
+        formControlName="version"
+      />
+    </div>
+    <div>
+      <label for="">_id</label><input type="text" formControlName="_id" />
+    </div>
+    <div>
+      <label for="">Key</label><input type="text" formControlName="key" />
+    </div>
+    <div>
+      <label for="">Nombre</label><input type="text" formControlName="name" />
+    </div>
+    <div>
+      <label for="">Titulo</label><input type="text" formControlName="title" />
+    </div>
+    <div><label for="">info</label><input type="text" /></div>
+    <div class="partype">
+      <label for="">Partype</label>
+      <div>
+        <ion-item *ngFor="let partype of partypes">
+          <ion-label>{{partype}}</ion-label>
+          <ion-checkbox slot="end"></ion-checkbox>
+        </ion-item>
+      </div>
+    </div>
+    <div class="etiquetas">
+      <label for="">Historia</label>
+      <textarea
+        name=""
+        id=""
+        cols="30"
+        rows="3"
+        formControlName="blurb"
+      ></textarea>
+    </div>
+
+    <div formGroupName="image">
+      <label for="">Iconos</label>
+      <div>
+        <input type="text" formControlName="pathIcon" />
+        <input type="text" formControlName="pathSplash" />
+      </div>
+    </div>
+    <div class="etiquetas">
+      <label for="">Etiquetas</label>
+      <div>
+        <ion-item *ngFor="let etiqueta of etiquetas">
+          <ion-label>{{etiqueta.nombre}}</ion-label>
+          <ion-checkbox
+            slot="end"
+            (ionChange)="changeState(etiqueta.checked,etiqueta.nombre)"
+          ></ion-checkbox>
+        </ion-item>
+      </div>
+    </div>
+    <div class="stats">
+      <label for="">Estadisticas</label>
+      <div formGroupName="info">
+        <ion-range min="0" max="10" color="secondary" formControlName="attack">
+          <ion-label slot="start">0</ion-label>
+          <ion-label slot="end">10</ion-label>
+        </ion-range>
+        <ion-range min="0" max="10" color="secondary" formControlName="defense">
+          <ion-label slot="start">0</ion-label>
+          <ion-label slot="end">10</ion-label>
+        </ion-range>
+        <ion-range min="0" max="10" color="secondary" formControlName="magic">
+          <ion-label slot="start">0</ion-label>
+          <ion-label slot="end">10</ion-label>
+        </ion-range>
+        <ion-range
+          min="0"
+          max="10"
+          color="secondary"
+          formControlName="difficulty"
+        >
+          <ion-label slot="start">0</ion-label>
+          <ion-label slot="end">10</ion-label>
+        </ion-range>
+      </div>
+    </div>
+    <div class="ion-text-center">
+      <ion-button expand="block" type="submit" shape="round">
+        Insertar
+      </ion-button>
+      <ion-button
+        expand="block"
+        type="reset"
+        (click)="resetForm()"
+        shape="round"
+      >
+        Cancelar
+      </ion-button>
+    </div>
+  </form>
+</ion-content>

@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "app-stats-lol",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="secondary">
+      <ion-button [routerLink]="['insert']">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title> Campeones </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item
+      *ngFor="let champion of listChampions"
+      [routerLink]="['detail', champion._id]"
+    >
+      <ion-avatar slot="start">
+        <img [src]="champion.image.pathIcon" />
+      </ion-avatar>
+      <ion-label>{{champion.name}}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

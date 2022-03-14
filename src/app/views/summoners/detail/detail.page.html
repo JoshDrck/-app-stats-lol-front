@@ -1,0 +1,111 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalle de Usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid
+    style="
+      height: 100%;
+      display: flex;
+      flex-flow: column;
+      justify-items: center;
+    "
+  >
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <ion-avatar class="avatar">
+          <ion-img [src]="champ.icon"></ion-img>
+        </ion-avatar>
+      </ion-col>
+    </ion-row>
+    <ion-row style="flex-grow: 1">
+      <ion-col>
+        <ion-slides pager="false" [options]="slideOpts" style="height: 100%">
+          <ion-slide>
+            <ion-content class="ion-margin-top">
+              <ion-card>
+                <ion-card-title> {{champ.name}} </ion-card-title>
+                <ion-card-content>
+                  <ion-label>Estadisticas de {{champ.name}}</ion-label>
+                  <div>
+                    <ion-chip>
+                      <ion-icon name="checkmark"></ion-icon>
+                      <ion-label>Nivel: {{champ.lvl}}</ion-label>
+                    </ion-chip>
+                    <ion-chip>
+                      <ion-icon name="checkmark"></ion-icon>
+                      <ion-label>Rango: {{champ.leagueTier}}</ion-label>
+                    </ion-chip>
+                    <ion-chip>
+                      <ion-icon name="checkmark"></ion-icon>
+                      <ion-label>Modo de juego: {{champ.queueLine}}</ion-label>
+                    </ion-chip>
+                    <ion-chip>
+                      <ion-icon name="checkmark"></ion-icon>
+                      <ion-label>
+                        Puntos de Liga: {{champ.leaguePoints}}
+                      </ion-label>
+                    </ion-chip>
+                    <ion-chip>
+                      <ion-icon name="checkmark"></ion-icon>
+                      <ion-label>Victorias: {{champ.wins}}</ion-label>
+                    </ion-chip>
+                    <ion-chip>
+                      <ion-icon name="checkmark"></ion-icon>
+                      <ion-label>Derrotas: {{champ.losses}}</ion-label>
+                    </ion-chip>
+                  </div>
+                </ion-card-content>
+              </ion-card>
+            </ion-content>
+          </ion-slide>
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+    <ion-row style="flex-grow: 1">
+      <ion-col>
+        <ion-slides pager="false" [options]="slideOpts" style="height: 100%">
+          <ion-slide *ngFor="let champs of champ.champions">
+            <ion-content class="ion-margin-top">
+              <ion-card>
+                <ion-card-header>
+                  <ion-card-subtitle>
+                    <ion-avatar class="avatar">
+                      <ion-img [src]="champs.image.pathIcon"></ion-img>
+                    </ion-avatar>
+                    <ion-card-title>{{champs._id}}</ion-card-title>
+                  </ion-card-subtitle>
+                </ion-card-header>
+                <ion-card-content>
+                  <div *ngFor="let info of champs.info">
+                    <ion-chip>
+                      <ion-icon name="checkmark"></ion-icon>
+                      <ion-label>Ataque: {{info.attack}}</ion-label>
+                    </ion-chip>
+                    <ion-chip>
+                      <ion-icon name="checkmark"></ion-icon>
+                      <ion-label>Defensa: {{info.defense}}</ion-label>
+                    </ion-chip>
+                    <ion-chip>
+                      <ion-icon name="checkmark"></ion-icon>
+                      <ion-label>Magía: {{info.magic}}</ion-label>
+                    </ion-chip>
+                    <ion-chip>
+                      <ion-icon name="checkmark"></ion-icon>
+                      <ion-label>Dificultad: {{info.difficulty}}</ion-label>
+                    </ion-chip>
+                  </div>
+                </ion-card-content>
+              </ion-card>
+            </ion-content>
+          </ion-slide>
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

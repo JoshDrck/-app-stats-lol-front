@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalle del campeon</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <img [src]="champs.image.pathSplash " />
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>
+          <ion-card-title class="ion-text-center">
+            {{champs.name}}
+          </ion-card-title>
+        </ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <label for="">Historia - {{champs.title}}</label>
+        <div>
+          <ion-text class="ion-text-justify">
+            <p>{{champs.blurb}}</p>
+          </ion-text>
+        </div>
+        <label for="">Atributos del Campeon</label>
+        <div *ngFor="let info of champs.info" class="info">
+          <ion-chip color="danger" outline="true">
+            <ion-label>Ataque: {{info.attack}}</ion-label>
+          </ion-chip>
+          <ion-chip color="warning" outline="true">
+            <ion-label>Defensa: {{info.defense}}</ion-label>
+          </ion-chip>
+          <ion-chip color="primary" outline="true">
+            <ion-label>Magía: {{info.magic}}</ion-label>
+          </ion-chip>
+          <ion-chip color="success" outline="true">
+            <ion-label>Dificultad: {{info.difficulty}}</ion-label>
+          </ion-chip>
+        </div>
+        <label for="">Tipo de Campeon</label>
+        <div class="tags">
+          <div *ngFor="let tags of champs.tags">
+            <ion-chip color="tertiary" outline="true">
+              <ion-label> {{tags}}</ion-label>
+            </ion-chip>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
